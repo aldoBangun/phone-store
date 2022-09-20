@@ -1,4 +1,5 @@
 @import '~antd/dist/antd.css';
+@import './styles/ProductDetail.css';
 
 :root {
   --height-header: 4rem;
