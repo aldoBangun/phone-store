@@ -1,5 +1,10 @@
 import React from 'react'
-import { Layout, Menu, Affix } from 'antd'
+import {
+  Layout,
+  Menu,
+  Affix,
+  Divider
+} from 'antd'
 import { HomeOutlined, UserOutlined, PhoneOutlined } from '@ant-design/icons'
 import { Outlet, Link } from 'react-router-dom'
 import Logo from '../icons/Logo'
@@ -65,6 +70,8 @@ class AppLayout extends React.Component {
             >
               <Outlet />
             </Layout.Content>
+            <Divider />
+            <Layout.Footer>Phone Store - 2022</Layout.Footer>
           </Layout>
         </Layout>
       </Layout>

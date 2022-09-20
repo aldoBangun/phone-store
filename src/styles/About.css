@@ -1,0 +1,50 @@
+.about .profile-card {
+  text-align: center;
+  border-radius: 1rem;
+}
+
+.about .profile-image {
+  --image-size: 8rem;
+  object-position: 0 0;
+  object-fit: cover;
+  height: var(--image-size);
+  width: var(--image-size);
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.about .ant-image:has(.profile-image) .ant-image-mask {
+  border-radius: 50%;
+}
+
+.about .profile-name {
+  color: #444;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.about .profile-description {
+  text-align: left;
+  color: #444;
+}
+
+.about .profile-description-title {
+  color: #999;
+}
+
+.about .portfolio-image {
+  --image-size: 15rem;
+  width: var(--image-size);
+  height: var(--image-size);
+  object-fit: cover;
+  display: block;
+}
+
+.about .portfolio-list {
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.about .portfolio-card {
+  text-align: center;
+}

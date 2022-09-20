@@ -8,7 +8,8 @@
   object-fit: cover;
   border-radius: .25rem;
   cursor: pointer;
-  border: '3px solid';
+  border-width: 3px;
+  border-style: solid;
   width: var(--thumb-size);
   height: var(--thumb-size);
 }
