@@ -1,11 +1,13 @@
 import React from 'react'
 import { Table, Image } from 'antd'
+import { useNavigate } from 'react-router-dom'
 
 const columns = [
   {
     title: 'Product',
     dataIndex: 'thumbnail',
     key: 'thumbnail',
+    width: 200,
     render: (url) => (
       <Image
         src={url}
@@ -19,22 +21,33 @@ const columns = [
   {
     title: 'Name',
     dataIndex: 'title',
-    key: 'title'
+    key: 'title',
+    width: 200
   },
   {
     title: 'Brand',
     dataIndex: 'brand',
-    key: 'brand'
+    key: 'brand',
+    width: 200
+  },
+  {
+    title: 'Category',
+    dataIndex: 'category',
+    key: 'category',
+    width: 200
   },
   {
     title: 'Price',
     dataIndex: 'price',
-    key: 'price'
+    key: 'price',
+    render: (price) => `$${price.toLocaleString()}`,
+    width: 200
   },
   {
-    title: 'Description',
-    dataIndex: 'description',
-    key: 'description'
+    title: 'Stock',
+    dataIndex: 'stock',
+    key: 'stock',
+    width: 200
   }
 ]
 
@@ -44,15 +57,17 @@ class TableProducts extends React.Component {
   }
 
   render() {
-    const { products } = this.props
+    const { products, navigate } = this.props
 
     return (
       <Table
+        rowClassName="product-row"
         columns={columns}
         dataSource={products}
+        size="large"
         onRow={(product) => ({
           onClick() {
-            console.log(product)
+            navigate(`products/${product.id}`)
           }
         })}
         pagination={{ position: ['bottomCenter'] }}
@@ -61,4 +76,11 @@ class TableProducts extends React.Component {
   }
 }
 
-export default TableProducts
+function withNavigation(Component) {
+  return function Wrapper(props) {
+    const navigate = useNavigate()
+    return <Component {...props} navigate={navigate} />
+  }
+}
+
+export default withNavigation(TableProducts)
