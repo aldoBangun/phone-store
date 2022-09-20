@@ -15,31 +15,34 @@ class Home extends React.Component {
     this.state = {
       search: '',
       products: data,
+      searchResult: data
     }
 
     this.handleSearch = this.handleSearch.bind(this)
     this.setSearch = this.setSearch.bind(this)
   }
 
-  componentDidMount() {
-    const { products } = this.state
-    console.log(products)
-  }
-
   handleSearch() {
-    const { search } = this.state
-    console.log(search)
+    const { search, products } = this.state
+    const filteredProducts = products.filter((product) => {
+      const keyword = search.toLocaleLowerCase()
+      return product.title.toLocaleLowerCase().includes(keyword)
+    })
+
+    this.setState({
+      searchResult: filteredProducts
+    })
   }
 
   setSearch(e) {
     this.setState({
-      search: e.target.value,
+      search: e.target.value
     })
   }
 
   render() {
     const { setSearch } = this
-    const { products } = this.state
+    const { searchResult } = this.state
 
     return (
       <>
@@ -56,7 +59,7 @@ class Home extends React.Component {
             />
           </Form>
 
-          <TableProducts products={products} />
+          <TableProducts products={searchResult} />
         </Space>
       </>
     )
