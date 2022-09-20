@@ -1,5 +1,5 @@
 import React from 'react'
-import { Layout, Menu } from 'antd'
+import { Layout, Menu, Affix } from 'antd'
 import { HomeOutlined, UserOutlined, PhoneOutlined } from '@ant-design/icons'
 import { Outlet, Link } from 'react-router-dom'
 import Logo from '../icons/Logo'
@@ -45,14 +45,24 @@ class AppLayout extends React.Component {
           </Link>
         </Layout.Header>
         <Layout>
-          <Layout.Sider>
-            <Menu
-              items={sidebarMenu}
-            />
+          <Layout.Sider style={{ backgroundColor: 'white' }}>
+            <Affix>
+              <Menu
+                className="app-menu"
+                items={sidebarMenu}
+              />
+            </Affix>
           </Layout.Sider>
 
           <Layout>
-            <Layout.Content>
+            <Layout.Content
+              className="site-layout-background"
+              style={{
+                padding: 24,
+                margin: 0,
+                minHeight: 280
+              }}
+            >
               <Outlet />
             </Layout.Content>
           </Layout>
