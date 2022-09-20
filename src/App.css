@@ -1,1 +1,18 @@
 @import '~antd/dist/antd.css';
+
+/* utils */
+.product-row {
+  position: relative;
+  cursor: pointer;
+}
+
+.product-row::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0,0,0,0);
+}
+
+.product-row:hover::after {
+  background-color: rgba(0,0,0,.1);
+}
