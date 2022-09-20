@@ -1,5 +1,9 @@
 @import '~antd/dist/antd.css';
 
+:root {
+  --height-header: 4rem;
+}
+
 /* utils */
 .product-row {
   position: relative;
@@ -15,4 +19,16 @@
 
 .product-row:hover::after {
   background-color: rgba(0,0,0,.1);
+}
+
+.ant-layout-header {
+  height: var(--height-header);
+}
+
+.app-menu .ant-menu-item {
+  padding-left: 50px;
+}
+
+.ant-layout-content {
+  height: calc(100vh - var(--height-header));
 }
