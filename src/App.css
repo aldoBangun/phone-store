@@ -1,6 +1,7 @@
 @import '~antd/dist/antd.css';
 @import './styles/ProductDetail.css';
 @import './styles/About.css';
+@import './styles/Contact.css';
 
 :root {
   --height-header: 4rem;
@@ -32,5 +33,7 @@
 }
 
 .ant-layout-content {
+  margin: 0;
+  padding: 2rem;
   min-height: calc(100vh - var(--height-header));
 }
